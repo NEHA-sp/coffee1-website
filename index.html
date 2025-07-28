@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!---font link-->
+    <link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+<!---custom file-->
+<link rel="stylesheet" href="style2.css">
+<style>
+   
+        #username-display {
+            color: #000; 
+            font-size: 1.3rem;/* Black color */
+        }
+    
+
+
+.user {
+    display: inline-block;
+    cursor: pointer;
+    color: #333;
+    margin-right: 10px;
+}
+
+.login-form {
+    display: none;
+    position: absolute;
+    top: 500%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 30px; /* Increase padding */
+    background: #fff;
+    border-radius: 10px; /* Increase border radius */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    width: 400px; /* Increase width */
+}
+
+.login-form input,
+.login-form button {
+    display: block;
+    width: 100%;
+    margin-bottom: 20px; /* Increase margin */
+    padding: 15px; /* Increase padding */
+    font-size: 18px; /* Increase font size */
+    border: 2px solid #ccc; /* Increase border width */
+    border-radius: 8px; /* Increase border radius */
+}
+
+.login-form button {
+    background: #4CAF50;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.login-form button:hover {
+    background: #45a049;
+}
+#user-info p {
+      text-transform: lowercase; }
+
+
+</style>
+</head>
+<body>
+   
+<!--header section starts-->
+
+<header class="header">
+    
+    <a href="#" class="logo">
+        
+        <img src="images/logo.jpg" alt="">
+        
+    </a>
+<nav class="navbar">
+    <a href="#home">Home</a>
+    <a href="about.html">About</a>
+    <a href="menu.html">Menu</a>
+    <a href="products.html">Products</a>
+    
+    <a href="review.html">Review</a>
+    <a href="blog.html">Blogs</a>
+    
+    <a href="online reservation.html">Online Reservation</a>
+    <a href="signup.html">Sign up</a>
+    <a href="feedback.html">Feedback</a>
+    
+
+  
+</nav>
+<div class="icons">
+    <div class="fas fa-search" id="search-btn"></div>
+    <div class="fas fa-shopping-cart" id="cart-btn"></div>
+    <div class="fas fa-user" id="user-btn"></div>
+    <div id="username-display"></div>
+    
+    <div class="fas fa-bars" id="menu-btn"></div>
+</div>
+<div class="search-form">
+    <input type="search" id="search-box" placeholder="search here...">
+    <label for="search-box" class="fas fa-search"></label>
+
+</div>
+
+
+    <!-- User icon and welcome message -->
+    <div>
+
+        <h1 id="welcome-message"></h1>
+        <div class="user-btn">
+            <div id="user-info" style="display: none;">
+                <p>Name: Neha</p>
+                <p>Email: neha@gmail.com</p>
+            </div>
+        </div>
+        
+      </div>
+    
+  
+<div class="search-form">
+    <input type="search" id="search-box" placeholder="search here...">
+    <label for="search-box" class="fas fa-search"></label>
+
+</div>
+<div class="cart-items-container">
+ <div class="cart-item">
+        <span class="fas fa-times"></span>
+        <img src="images/product11.jpg" alt="">
+        <div class="content">
+            <h3>cart item 1</h3>
+            <div class="price">₹600</div>
+        </div>
+    </div>
+    <div class="cart-item">
+        <span class="fas fa-times"></span>
+        <img src="images/product22.jpg" alt="">
+        <div class="conent">
+            <h3>cart item 2</h3>
+            <div class="price">₹650</tdiv>
+        </div>
+    </div>
+    
+    <div class="fas fa-" id="menu-btn"></div>
+
+    <div class="cart-item">
+        <span class="fas fa-times"></span>
+        <img src="images/product33.jpg" alt="">
+        <div class="content">
+            <h3>cart item 3</h3>
+            <div class="price">₹700</div>
+        </div>
+    </div>
+   
+    
+   <a href="addtocart.html" class="btn">check out now</a>
+</div>
+</header>
+
+
+
+
+
+<!--home section starts-->
+<section class="home" id="home">
+    <div class="content">
+        <!-- Inside the body of index2.html -->
+
+
+        <h3>BrewHub</h3>
+    
+    <p>Good ideas start with brainstorming. Great ideas starts with coffee</p>
+    <a href="products.html" class="btn">get yours now</a>
+    </div>
+    </section>
+
+
+
+
+
+
+
+<!--about section starts-->
+
+<section class="about" id="about">
+    <h1 class="heading"><span>about</span> us </h1>
+    <div class="row">
+    
+        <div class="images">
+            <img src="images/1.jpg" alt="">
+        </div>
+        <div class="content">
+            <h3>what makes your coffee special?</h3>
+            <p>At BrewHub, we believe that every cup of coffee tells a story. From the carefully selected beans sourced from around the world to the meticulous brewing process, we strive for perfection in every step. But our dedication doesn't stop there; we're committed to sustainability, community, and creating meaningful connections over a shared love for coffee.What sets BrewHub apart is our unwavering commitment to innovation. From our user-friendly website and mobile app to our cutting-edge brewing techniques, we're constantly pushing the boundaries to elevate your coffee experience.</p>
+            <a href="learnmore.html" class="btn">learn more</a>
+        </div>
+    </div>
+    
+    </section>
+  
+        
+        
+
+<!--menu-->
+
+
+<section class="menu" id="menu">
+    <h1 class="heading"> our <span> menu </span></h1>
+    <div class="box-container">
+        <div class="box">
+
+            <img src="images\menu1.jpg" alt="">
+            <h3>Cappuccino</h3>
+            <div class="price">₹650<span>₹800</span></div>
+            
+        </div>
+        <div class="box">
+
+            <img src="images\menu2.jpg" alt="">
+            <h3>Cafe Latte</h3>
+            <div class="price">₹600<span>₹800</span></div>
+           
+        </div>
+        <div class="box">
+
+            <img src="images\menu3.jpg" alt="">
+            <h3>Expresso</h3>
+            <div class="price">₹750<span>₹800</span></div>
+           
+        </div>
+        <div class="box">
+
+            <img src="images/menu4.jpg" alt="">
+            <h3>Vanilla Latte</h3>
+            <div class="price">₹700<span>₹800</span></div>
+           
+        </div>
+        <div class="box">
+
+            <img src="images\menu5.jpg" alt="">
+            <h3>Filter Coffee</h3>
+            <div class="price">₹650<span>₹800</span></div>
+            
+        </div>
+        <div class="box">
+
+            <img src="images\menu6.jpg" alt="">
+            <h3>Velvet Coffee</h3>
+            <div class="price">₹700<span>₹800</span></div>
+           
+        </div>
+
+    </div>
+</section>
+<!--products-->
+<section class="products" id="products">
+    <h1 class="heading">our <span> products </span></h1>
+    <div class="box-container">
+        <div class="box">
+            <div class="icons">
+                <a href="#" class="fas fa-shopping-cart"></a>
+                <a href="#" class="fas fa-heart"></a>
+                <a href="#" class="fas fa-eye"></a>
+            </div>
+            <div class="image">
+                <img src="images\product11.jpg" alt="">
+                <a href="addtocart.html" class="btn">add to cart</a>
+
+            </div>
+            <div class="content">
+                <h3>Espresso Milk Blend</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+
+                </div>
+                <div class="price">₹600 <span>₹800</span></div>
+            </div>
+        </div>
+
+
+
+
+
+
+        <div class="box">
+            <div class="icons">
+                <a href="#" class="fas fa-shopping-cart"></a>
+                <a href="#" class="fas fa-heart"></a>
+                <a href="#" class="fas fa-eye"></a>
+            </div>
+            <div class="image">
+                <img src="images\product33.jpg" alt="">
+                <br>
+                <a href="addtocart.html" class="btn">add to cart</a>
+            </div>
+            <div class="content">
+                <h3>Monsoon Malabar</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+
+                </div>
+                <div class="price">₹650 <span>₹800</span></div>
+            </div>
+        </div>
+
+
+
+
+        <div class="box">
+            <div class="icons">
+                <a href="#" class="fas fa-shopping-cart"></a>
+                <a href="#" class="fas fa-heart"></a>
+                <a href="#" class="fas fa-eye"></a>
+            </div>
+            <div class="image">
+                <img src="images\product33.jpg" alt="">
+                <a href="addtocart.html" class="btn">add to cart</a>
+            </div>
+            <div class="content">
+                <h3>Cold Brew Blend</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+
+                </div>
+                <div class="price">₹650 <span>₹800</span></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!---review-->
+<section class="review" id="review">
+    <h1 class="heading">customer's <span>review</span></h1>
+    <div class="slider">
+        <div class="box active">
+            <img src="" alt="" class="quote">
+            <p>I enjoyed your daily blend and your service, so now I am trying 3 more of your coffee's to see which one I like the best. Maybe I will have more than one favourite.</p>
+            <img src="images\people1.jpg" class="user" alt="">
+            <h3>Jayanth</h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+            </div>
+        </div>
+        <div class="box">
+            <img src="" alt="" class="quote">
+            <p>Excellent service James. Thanks for your quick delivery following a seemingly small order of two samples. I love the flavour of the daily blend and am looking forward to the Crema. Your couriers are the best delivery system in the country in my book. I look forward to further dealings with you.</p>
+            <img src="images\people2.jpg" class="user" alt="">
+            <h3>Prabhakar</h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+            </div>
+        </div>
+        <div class="box">
+            <img src="" alt="" class="quote">
+            <p>I have used these coffee beans for our coffee for the last 18 months. The flavour, aroma, and crema have been consistent and perfect. I have been recommending these beans to anyone who asks! Keep up the great work!</p>
+            <img src="images/people4.jpg" class="user" alt="">
+            <h3>Neha</h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+            </div>
+        </div>
+        <!-- Add more review boxes as needed -->
+    </div>
+    <div class="slider-controls">
+        <button class="prev"><i class="fas fa-chevron-left"></i></button>
+        <button class="next"><i class="fas fa-chevron-right"></i></button>
+    </div>
+    
+   
+     
+</section>
+
+
+  
+<!--blogs-->
+<section class="blogs" id="blogs">
+    <h1 class="heading"> our <span>blogs</span></h1>
+    <div class="box-container">
+    <div class="box">
+        <div class="image">
+            <img src="images\blog1.jpg" alt="">
+        </div>
+        <div class="content">
+            <a href="#" class="title">Exploring Coffee Origins</a>
+            <span>by admin / 21st feb,2024</span>
+            <p>The catch phrase for Coffee Cantata, “Coffee: Music in a Cup,” captures creator Margaret’s unpretentious approach to coffee connoisseurship. Her coffee reviews are cross-referenced by geographic origin and brew method.</p>
+            
+            <a href="blog1.html" class="btn">read more</a>
+        </div>
+        </div>
+        <div class="box">
+            <div class="image">
+                <img src="images\blog2.png" alt="">
+            </div>
+            <div class="content">
+                <a href="#" class="title">DIY Coffee Recipes:</a>
+                <span>by admin / 21st feb,2024</span>
+                <p>The catch phrase for Coffee Cantata, “Coffee: Music in a Cup,” captures creator Margaret’s unpretentious approach to coffee connoisseurship. Her coffee reviews are cross-referenced by geographic origin and brew method.</p>
+                <a href="blog2.html" class="btn">read more</a>
+            </div>
+            </div>
+            <div class="box">
+                <div class="image">
+                    <img src="images\blog3.jpeg" alt="">
+                </div>
+                <div class="content">
+                    <a href="#" class="title">Coffee and Health</a>
+                    <span>by admin / 21st feb,2024</span>
+                    <p>The catch phrase for Coffee Cantata, “Coffee: Music in a Cup,” captures creator Margaret’s unpretentious approach to coffee connoisseurship. Her coffee reviews are cross-referenced by geographic origin and brew method.</p>
+                    <a href="blog3.html" class="btn">read more</a>
+                </div>
+                </div>
+    </div>
+</section>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<h1 class="heading">Online <span>Reservation</span></h1>
+<!---reservation-->
+<section class="reservation" id="reservation">
+    
+        
+    <div class="container">
+
+      <div class="form reservation-form bg-black-10">
+
+        <form action="" class="form-left">
+
+          <h2 class="headline-1 text-center"></h2>
+
+          <p class="form-text text-center">
+           <h1> Booking request <a href="tel:+88123123456" class="link">+91 9731498290</a>
+            or fill out the order form</h1>
+          </p>
+
+          <div class="input-wrapper">
+            <input type="text" name="name" placeholder="Your Name" autocomplete="off" class="input-field">
+</div>
+<div>
+            <input type="tel" name="phone" placeholder="Phone Number" autocomplete="off" class="input-field">
+          </div>
+          <br>
+
+          <div class="input-wrapper">
+
+            <div class="icon-wrapper">
+              <ion-icon name="person-outline" aria-hidden="true"></ion-icon>
+
+              <select name="person" class="input-field">
+                <option value="1-person">1 Person</option>
+                <option value="2-person">2 Person</option>
+                <option value="3-person">3 Person</option>
+                <option value="4-person">4 Person</option>
+                <option value="5-person">5 Person</option>
+                <option value="6-person">6 Person</option>
+                <option value="7-person">7 Person</option>
+              </select>
+
+              <ion-icon name="chevron-down" aria-hidden="true"></ion-icon>
+            </div>
+
+            <div class="icon-wrapper">
+              <ion-icon name="calendar-clear-outline" aria-hidden="true"></ion-icon>
+
+              <input type="date" name="reservation-date" class="input-field">
+
+              <ion-icon name="chevron-down" aria-hidden="true"></ion-icon>
+            </div>
+
+            <div class="icon-wrapper">
+              <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
+
+              <select name="person" class="input-field">
+                <option value="08:00am">08 : 00 am</option>
+                <option value="09:00am">09 : 00 am</option>
+                <option value="010:00am">10 : 00 am</option>
+                <option value="011:00am">11 : 00 am</option>
+                <option value="012:00am">12 : 00 am</option>
+                <option value="01:00pm">01 : 00 pm</option>
+                <option value="02:00pm">02 : 00 pm</option>
+                <option value="03:00pm">03 : 00 pm</option>
+                <option value="04:00pm">04 : 00 pm</option>
+                <option value="05:00pm">05 : 00 pm</option>
+                <option value="06:00pm">06 : 00 pm</option>
+                <option value="07:00pm">07 : 00 pm</option>
+                <option value="08:00pm">08 : 00 pm</option>
+                <option value="09:00pm">09 : 00 pm</option>
+                <option value="10:00pm">10 : 00 pm</option>
+              </select>
+
+              <ion-icon name="chevron-down" aria-hidden="true"></ion-icon>
+            </div>
+
+          </div>
+
+          <textarea name="message" placeholder="Message" autocomplete="off" class="input-field"></textarea>
+<br>
+          <button type="submit" class="btn btn-secondary">
+            <a href="tablereserved.html" class="btn">Book Table </a>
+
+            
+          </button>
+
+        </form>
+</div>
+
+      </div>
+
+    </div>
+  </section>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<h1 class="heading">Order <span>now</span></h1>
+  
+<!--footer-->
+<section class="footer">
+    <div class="share">
+        <a href="#" class="fab fa-facebook"></a>
+        <a href="#" class="fab fa-twitter"></a>
+        <a href="#" class="fab fa-instagram"></a>
+        <a href="#" class="fab fa-linkedin"></a>
+        <a href="#" class="fab fa-pinterest"></a>
+    </div>
+    <div class="links">
+        <a href="#">home</a>
+        <a href="#">about</a>
+        <a href="#">menu</a>
+        <a href="#">products</a>
+        <a href="#">review</a>
+        <a href="#">contact</a>
+        <a href="#">blogs</a>
+        <a href="#">online reservation</a>
+        
+
+
+    </div>
+    <div class="credit">created by <span>mrs. web designer</span> |all rights reserved</div>
+</section>
+
+   <!--custom jss file link-->
+   <script src="main2.js"></script>
+
+    
+</body>
+
+<script>
+document.getElementById('loginform').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const formData = {
+        username: document.getElementById('username').value,
+        password: document.getElementById('password').value
+    };
+    
+
+    fetch('http://localhost:3000/login', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.message === 'Login successful') {
+            // Redirect to home page with username as a parameter
+            window.location.href = `index.html?username=${formData.username}`;
+        } else {
+            console.log('Login failed:', data.message);
+        }
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+    });
+});
+</script>
+<script>
+    const params = new URLSearchParams(window.location.search);
+    const username = params.get('username');
+    if (username) {
+        document.getElementById('welcome-message').innerText = `Welcome, ${username}!`;
+    }
+    </script>
+</script>
+
+
+ 
+    
+    <script>
+    document.getElementById('user-btn').addEventListener('click', function() {
+        // Check if user is logged in (you can modify this condition according to your login mechanism)
+        const isLoggedIn = true; // Assuming user is logged in
+        const userInfo = document.getElementById('user-info');
+        if (isLoggedIn) {
+            // Display user information and logout option
+            userInfo.innerHTML = `
+                <p>Name: Neha</p>
+                <p>Email: neha@gmail.com</p>
+                <button id="logout-btn">Logout</button>
+            `;
+            // Add event listener to logout button
+            document.getElementById('logout-btn').addEventListener('click', function() {
+                // Perform logout actions here (e.g., clear session, redirect to login page)
+                alert('Logout successful');
+                // Redirect to login page
+                window.location.href = 'login.html';
+            });
+        } else {
+            // Redirect user to login page or show login modal
+            window.location.href = 'login.html'; // Redirect to login page
+            // Or show a login modal
+        }
+        // Toggle display of user information
+        userInfo.style.display = (userInfo.style.display === 'none') ? 'block' : 'none';
+    });
+    </script>
+    
+</html>
