@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checkout - BrewHub</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('./images/4.jpg'); /* Replace 'background-image.jpg' with the path to your background image */
+    background-size: cover;
+    color: #fff;
+  }
+
+  .container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1); /* White shadow effect */
+  }
+
+  h1 {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .cart {
+    width: 100%;
+    margin-bottom: 30px;
+    border-collapse: collapse;
+  }
+
+  .cart th, .cart td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #fff;
+  }
+
+  .cart th {
+    background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent white background */
+  }
+
+  .cart tfoot td {
+    font-weight: bold;
+  }
+
+  form {
+    margin-top: 30px;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  input[type="text"], input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid #fff;
+    background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent white background */
+    color: #fff;
+  }
+
+  button {
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #000;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  button:hover {
+    background-color: #777;
+  }
+
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Checkout</h1>
+  
+  <!-- Display Cart Items -->
+  <table class="cart">
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Insert JavaScript or server-side code to dynamically populate cart items -->
+      <tr>
+        <td>Espresso Milk Blend</td>
+        <td>1</td>
+        <td>600</td>
+        
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <!-- Additional cart items -->
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="2"><strong>Total</strong></td>
+        <td></td>
+      </tr>
+    </tfoot>
+  </table>
+  
+  <!-- Payment Form -->
+  <form action="/process-payment" method="POST">
+    <label for="name">Name on Card:</label>
+    <input type="text" id="name" name="name" required>
+    <label for="card-number">Card Number:</label>
+    <input type="text" id="card-number" name="card-number" required>
+    <label for="expiry">Expiration Date:</label>
+    <input type="text" id="expiry" name="expiry" placeholder="MM/YYYY" required>
+    <label for="cvv">CVV:</label>
+    <input type="text" id="cvv" name="cvv" required>
+    <button type="submit">Pay Now</button>
+  </form>
+  <br>
+  
+  <!-- Google Pay Button -->
+  <button id="google-pay-button">Pay with Google Pay</button>
+</div>
+
+</body>
+</html>
+
+   

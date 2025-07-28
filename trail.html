@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        /* Your CSS styles here */
+        /* Define your styles for review boxes, slider, etc. */
+        .review {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding: 20px;
+        }
+        .box {
+            flex: 0 0 30%; /* Adjust width as needed */
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin-bottom: 20px; /* Adjust margin as needed */
+            background-color: #f9f9f9;
+        }
+        .box p {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        .user {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+        .user-name {
+            font-size: 18px;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .stars {
+            color: #ffd700; /* Gold color */
+        }
+        .new-review {
+            margin-bottom: 20px;
+        }
+        #user-review {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        #submit-review {
+            background-color: #4caf50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+        #submit-review:hover {
+            background-color: #45a049;
+        }
+       
+        .rating input {
+            display: none;
+        }
+        .rating label {
+            font-size: 24px;
+            color: #ddd;
+            cursor: pointer;
+        }
+        .rating label:hover,
+        .rating label:hover ~ label,
+        .rating input:checked ~ label {
+            color: #ffd700; /* Gold color */
+        }
+    </style>
+</head>
+<body>
+    <h1 class="heading">customer's <span>review</span></h1>
+    <section class="review" id="review">
+        <div class="box">
+            <p>I enjoyed your daily blend and your service, so now I am trying 3 more of your coffee's to see which one I like the best. Maybe I will have more than one favourite.</p>
+            <img src="images\people1.jpg" class="user" alt="">
+            <div class="user-name">Jayanth</div>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+            </div>
+        </div>
+        <div class="box">
+            <p>Excellent service James. Thanks for your quick delivery following a seemingly small order of two samples. I love the flavour of the daily blend and am looking forward to the Crema. Your couriers are the best delivery system in the country in my book. I look forward to further dealings with you.</p>
+            <img src="images\people2.jpg" class="user" alt="">
+            <div class="user-name">Prabhakar</div>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+            </div>
+        </div>
+        <div class="box">
+            <p>I have used these coffee beans for our coffee for the last 18 months. The flavour, aroma, and crema have been consistent and perfect. I have been recommending these beans to anyone who asks! Keep up the great work!</p>
+            <img src="images/people4.jpg" class="user" alt="">
+            <div class="user-name">Priya</div>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Form for submitting a new review -->
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const username = params.get('username');
+        if (username) {
+            document.getElementById('welcome-message').innerText = `Welcome, ${username}!`;
+        }
+        </script>
+         <h1 id="welcome-message"></h1>
+    <section class="new-review">
+        <h2>Add Your Review</h2>
+        <form id="review-form">
+            <textarea id="user-review" rows="4" cols="50" placeholder="Enter your review here..."></textarea><br>
+            <div class="rating">
+                <input type="radio" id="star5" name="rating" value="5"><label for="star5">&#9733;</label>
+                <input type="radio" id="star4" name="rating" value="4"><label for="star4">&#9733;</label>
+                <input type="radio" id="star3" name="rating" value="3"><label for="star3">&#9733;</label>
+                <input type="radio" id="star2" name="rating" value="2"><label for="star2">&#9733;</label>
+                <input type="radio" id="star1" name="rating" value="1"><label for="star1">&#9733;</label>
+            </div>
+            <button type="submit" id="submit-review">Submit</button>
+        </form>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const submitButton = document.getElementById('submit-review');
+            const reviewTextArea = document.getElementById('user-review');
+            const reviewSection = document.getElementById('review');
+
+            submitButton.addEventListener('click', function(event) {
+                event.preventDefault();
+                const reviewText = reviewTextArea.value.trim();
+                const rating = document.querySelector('input[name="rating"]:checked');
+
+                if (reviewText !== '' && rating !== null) {
+                    // Create a new review box
+                    const newReviewBox = document.createElement('div');
+                    newReviewBox.classList.add('box');
+                    newReviewBox.innerHTML = `
+                        <p>${reviewText}</p>
+                        <div class="user-name">User</div>
+                        <div class="stars">
+                            ${Array.from({ length: parseInt(rating.value) }, () => '<i class="fas fa-star"></i>').join('')}
+                        </div>`;
+                    // Append the new review box
+                    reviewSection.appendChild(newReviewBox);
+                    // Clear the textarea
+                    reviewTextArea.value = '';
+                    // Clear the rating
+                    rating.checked = false;
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Billing</title>
+    <link rel="stylesheet" href="style2.css">
+    <style>
+       body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    background-image: url(./images/4.jpg);
+    background-size: cover; /* This will cover the entire background */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    background-position: center; /* Centers the image horizontally and vertically */
+    padding: 100px;
+}
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+        }
+        .product-details {
+            margin-bottom: 10px;
+        }
+        .product-details h2 {
+            margin-bottom: 10px;
+            
+        }
+        .total-price {
+            font-size: 20px;
+            
+            margin-top: 20px;
+        }
+        .payment{
+            color:black;
+            background-color:bisque;
+        }
+        .font{
+            font-size: 15px;
+        }
+        .font1{
+            font-size: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Selected Products</h1>
+        
+        <!-- Product Details -->
+        <div class="product-details">
+            <h2>Product Details</h2>
+            <p class="font"><strong>Product Name:</strong> Espresso Milk Blend</p>
+            <p class="font"><strong>Price:</strong> ₹600</p>
+            <p class="font"><strong>Quantity:</strong> 1</p>
+        </div>
+        <div class="product-details">
+            <h>
+            <p class="font"><strong>Product Name:</strong>Monsoon Malabar </p>
+            <p class="font"><strong>Price:</strong> ₹650</p>
+            <p class="font"><strong>Quantity:</strong> 1</p>
+        </div>
+
+        <!-- Total Price -->
+        <div class="total-price">
+            <strong>Total Price:</strong>₹1250
+            <div>
+                <p class="payment">Payment Mode via Cash</p>
+            <a href="viewcart.html" class="btn add-to-cart">confirm</a>
+        
+</div>        
+</div>
+    </div>
+    
+
+    <!-- Script to populate product details -->
+    <script>
+        // Function to extract query parameters from URL
+        function getQueryVariable(variable) {
+            const query = window.location.search.substring(1);
+            const vars = query.split('&');
+            for (let i = 0; i < vars.length; i++) {
+                const pair = vars[i].split('=');
+                if (decodeURIComponent(pair[0]) === variable) {
+                    return decodeURIComponent(pair[1]);
+                }
+            }
+            console.log('Query variable %s not found', variable);
+            return null;
+        }
+
+        // Populate product details from query parameters
+        const productName = getQueryVariable('pname');
+        const productPrice = getQueryVariable('price');
+        const productQuantity = getQueryVariable('quantity');
+
+        // Display product details
+        document.getElementById('productName').textContent = productName;
+        document.getElementById('productPrice').textContent = productPrice;
+        document.getElementById('productQuantity').textContent = productQuantity;
+
+        // Calculate total price
+        const totalPrice = parseFloat(productPrice) * parseInt(productQuantity);
+        document.getElementById('totalPrice').textContent = totalPrice.toFixed(2);
+    </script>
+</body>
+</html>
+this is billing.html

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback Form</title>
+    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        /* Your CSS styles here */
+        /* Define your styles for review boxes, slider, etc. */
+        .review {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding: 20px;
+        }
+
+        .box {
+            flex: 0 0 30%; /* Adjust width as needed */
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin-bottom: 20px; /* Adjust margin as needed */
+            background-color: #f9f9f9;
+            display: none; /* Hide the boxes initially */
+        }
+        .box.active {
+            display: block; /* Show the box when it's active */
+        }
+        .box p {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        .user {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+        .user-name {
+            font-size: 18px;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .stars {
+            color: #ffd700; /* Gold color */
+        }
+        .new-review {
+            margin-bottom: 20px;
+        }
+        #user-review {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        #submit-review {
+            background-color: #4caf50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+        #submit-review:hover {
+            background-color: #45a049;
+        }
+        .rating input {
+            display: none;
+        }
+        .rating label {
+            font-size: 24px;
+            color: #ddd;
+            cursor: pointer;
+        }
+        .rating label:hover,
+        .rating label:hover ~ label,
+        .rating input:checked ~ label {
+            color: #ffd700; /* Gold color */
+        }
+    </style>
+</head>
+<body>
+    <h1 class="heading">Feedback<span></span></h1>
+    <section class="review" id="review">
+      
+    </section>
+
+    
+    <section class="new-review">
+        <h2>Submit Feedback</h2>
+        <form id="feedback-form">
+            <div>
+                <label for="experience">1. How was your experience at our cafe?</label><br>
+                <textarea id="experience" name="experience" rows="4" cols="50" required></textarea>
+            </div>
+            <div>
+                <label>2. How satisfied are you with our variety of products?</label><br>
+                <div class="rating" id="rating2">
+                    <input type="radio" id="star5" name="rating2" value="5"><label for="star5">&#9733;</label>
+                    <input type="radio" id="star4" name="rating2" value="4"><label for="star4">&#9733;</label>
+                    <input type="radio" id="star3" name="rating2" value="3"><label for="star3">&#9733;</label>
+                    <input type="radio" id="star2" name="rating2" value="2"><label for="star2">&#9733;</label>
+                    <input type="radio" id="star1" name="rating2" value="1"><label for="star1">&#9733;</label>
+                </div>
+            </div>
+            <div>
+                <label for="recommendation">3. How likely are you to recommend our website to your friends?</label><br>
+                <select id="recommendation" name="recommendation" required>
+                    <option value="">Select an option</option>
+                    <option value="Definitely">Definitely</option>
+                    <option value="Probably">Probably</option>
+                    <option value="Not Sure">Not Sure</option>
+                    <option value="Unlikely">Unlikely</option>
+                    <option value="Definitely Not">Definitely Not</option>
+                </select>
+            </div>
+            <button type="submit" id="submit-review">Submit</button>
+        </form>
+        <div id="thank-you" style="display: none; font-size: 24px;">Thanks for your feedback!</div>
+
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const submitButton = document.getElementById('submit-review');
+            const reviewSection = document.getElementById('review');
+            const thankYouMessage = document.getElementById('thank-you');
+
+            submitButton.addEventListener('click', function(event) {
+                event.preventDefault();
+
+                const experience = document.getElementById('experience').value.trim();
+                const rating2 = document.querySelector('input[name="rating2"]:checked');
+                const recommendation = document.getElementById('recommendation').value;
+
+                if (experience !== '' && rating2 !== null && recommendation !== '') {
+                    // Create a new review box
+                    const newReviewBox = document.createElement('div');
+                    newReviewBox.classList.add('box', 'active');
+                    newReviewBox.innerHTML = `
+                        <p>1. How was your experience at our cafe?<br>${experience}</p>
+                        <p>2. How satisfied are you with our variety of products?<br>${rating2.value}</p>
+                        <p>3. How likely are you to recommend our website to your friends?<br>${recommendation}</p>
+                        <div class="user-name">Neha</div>
+                        <div class="stars">
+                            ${Array.from({ length: parseInt(rating2.value) }, () => '<i class="fas fa-star"></i>').join('')}
+                        </div>`;
+                    // Append the new review box
+                    reviewSection.appendChild(newReviewBox);
+
+                    // Show thank you message
+                    thankYouMessage.style.display = 'block';
+
+                    // Clear the form fields
+                    document.getElementById('experience').value = '';
+                    document.querySelector('input[name="rating2"]:checked').checked = false;
+                    document.getElementById('recommendation').value = '';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

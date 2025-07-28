@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Order Coffee Products</title>
+<link rel="stylesheet" href="style2.css">
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-image: url('./images/order.jpg'); /* Add the URL or path to your background image */
+        background-size: cover;
+        background-position: center;
+        color: #fff;
+    }
+    .container {
+        max-width: 500px;
+        margin: 20px auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: rgba(0, 0, 0, 0.7); /* Adjust the opacity as needed */
+    }
+    .form-group {
+        margin-bottom: 20px;
+    }
+    .form-group label {
+        display: block;
+        font-weight: bold;
+    }
+    .form-group input[type="number"] {
+        width: 50px;
+    }
+    .form-group input[type="submit"] {
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    
+   
+
+
+
+
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Order Coffee Products</h2>
+    <form action="C:\Users\NEHA SAI PRIYA\Desktop\coffee1 website\order.php" method="post">
+        <div class="form-group">
+            <label for="product1">Product 1: Espresso Milk Blend</label>
+            <input type="number" id="product1" name="product1" min="0" placeholder="Quantity">
+        </div>
+        <div class="form-group">
+            <label for="product2">Product 2: Cold Brew Blend</label>
+            <input type="number" id="product2" name="product2" min="0" placeholder="Quantity">
+        </div>
+        <div class="form-group">
+            <label for="product3">Product 3: Monsoon Malabar</label>
+            <input type="number" id="product3" name="product3" min="0" placeholder="Quantity">
+        </div>
+        <a href="addtocart.html" class="btn">Place Order</a>
+    
+        </form>
+        
+            
+        </div>
+    </form>
+    
+</div>
+
+
+</body>
+</html>

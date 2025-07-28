@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style2.css">
+    <style>
+      
+    
+    
+        .cart-items-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .cart-item {
+            background-color: #f0f0f0;
+            padding: 10px;
+            border-radius: 5px;
+            width: calc(50% - 5px); /* Adjust as needed */
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        .cart-item:hover {
+            background-color: #ddd; /* Grey hover effect */
+        }
+
+        .buy-now-btn {
+            display: block;
+            width: fit-content;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .buy-now-btn:hover {
+            background-color: #555; /* Grey hover effect */
+        }
+        .cart-item img {
+            max-width: 100px; /* Adjust the size as needed */
+            height: auto;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+   
+
+<section class="products" id="products">
+    <h1 class="heading">our <span> products </span></h1>
+    <div class="box-container">
+        <!-- Product 1 -->
+        <div class="box">
+            <div class="icons">
+                <button class="increment-btn"><i class="fas fa-plus"></i></button>
+                <button class="decrement-btn"><i class="fas fa-minus"></i></button>
+            </div>
+            <div class="image">
+                <img src="images\product11.jpg" alt="">
+                <a href="#" class="btn add-to-cart">add to cart</a>
+            </div>
+            <div class="content">
+                <h3>Espresso Milk Blend</h3>
+                <div class="quantity">Quantity: <span class="quantity-value">0</span></div>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <div class="price">₹600 </div>
+            </div>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="box">
+            <div class="icons">
+                <button class="increment-btn"><i class="fas fa-plus"></i></button>
+                <button class="decrement-btn"><i class="fas fa-minus"></i></button>
+            </div>
+            <div class="image">
+                <img src="images\product33.jpg" alt="">
+                <a href="#" class="btn add-to-cart">add to cart</a>
+            </div>
+            <div class="content">
+                <h3>Monsoon Malabar</h3>
+                <div class="quantity">Quantity: <span class="quantity-value">0</span></div>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <div class="price">₹650 </div>
+            </div>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="box">
+            <div class="icons">
+                <button class="increment-btn"><i class="fas fa-plus"></i></button>
+                <button class="decrement-btn"><i class="fas fa-minus"></i></button>
+            </div>
+            <div class="image">
+                <img src="images\product33.jpg" alt="">
+                <a href="#" class="btn add-to-cart">add to cart</a>
+            </div>
+            <div class="content">
+                <h3>Cold Brew Blend</h3>
+                <div class="quantity">Quantity: <span class="quantity-value">0</span></div>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <div class="price">₹650 </div>
+            </div>
+        </div>
+        
+        <!-- Add more product boxes here if needed -->
+
+    </div>
+</section>
+
+<!-- Container to display cart items -->
+<div class="cart-items-container">
+    <!-- Cart items will be displayed here -->
+</div>
+<a href="billing.html?pname=Espresso%20Milk%20Blend&price=600&quantity=1" class="buy-now-btn">Buy Now</a>
+
+
+<script>
+    let cartItemCount = 0;
+
+    document.addEventListener('click', function(event) {
+        const addToCartBtn = event.target.closest('.add-to-cart');
+        if (addToCartBtn) {
+            addToCart(addToCartBtn);
+        }
+    });
+
+    function addToCart(btn) {
+        const productBox = btn.closest('.box');
+        const productName = productBox.querySelector('h3').textContent;
+        const productPrice = productBox.querySelector('.price').textContent;
+        const productQuantity = productBox.querySelector('.quantity-value').textContent;
+        const productImageSrc = productBox.querySelector('.image img').src;
+        const cartItemsContainer = document.querySelector('.cart-items-container');
+
+        // Increment cart item count
+        cartItemCount++;
+
+        // Create a new cart item element
+        const cartItem = document.createElement('div');
+        cartItem.classList.add('cart-item');
+        cartItem.innerHTML = `
+            <h3>Cart ${cartItemCount}</h3>
+            <img src="${productImageSrc}" alt="${productName}">
+            <div>
+                <span>${productName}</span>
+                <span>${productPrice}</span>
+                <span>Quantity: ${productQuantity}</span>
+            </div>
+        `;
+
+        // Append the cart item to the cart items container
+        cartItemsContainer.appendChild(cartItem);
+    }
+</script>
+<script>
+    document.addEventListener('click', function(event) {
+        const incrementBtn = event.target.closest('.increment-btn');
+        const decrementBtn = event.target.closest('.decrement-btn');
+        if (incrementBtn) {
+            incrementQuantity(incrementBtn);
+        }
+        if (decrementBtn) {
+            decrementQuantity(decrementBtn);
+        }
+    });
+
+    function incrementQuantity(btn) {
+        const quantityElement = btn.closest('.box').querySelector('.quantity-value');
+        let quantity = parseInt(quantityElement.textContent);
+        if (quantity === 0) {
+            const productName = btn.closest('.box').querySelector('h3').textContent;
+            alert(productName + " added to cart");
+        }
+        quantity++;
+        quantityElement.textContent = quantity;
+    }
+
+    function decrementQuantity(btn) {
+        const quantityElement = btn.closest('.box').querySelector('.quantity-value');
+        let quantity = parseInt(quantityElement.textContent);
+        if (quantity > 0) {
+            if (quantity === 1) {
+                const productName = btn.closest('.box').querySelector('h3').textContent;
+                alert(productName + " removed from cart");
+            }
+            quantity--;
+            quantityElement.textContent = quantity;
+        }
+    }
+</script>
+<script>
+    // Function to handle the buy now button click
+    function buyNow() {
+        const selectedProducts = document.querySelectorAll('.box.selected');
+        let queryString = 'billing.html?';
+        selectedProducts.forEach((product, index) => {
+            const productName = product.querySelector('h3').textContent;
+            const productPrice = product.querySelector('.price').textContent;
+            const productQuantity = product.querySelector('.quantity-value').textContent;
+            queryString += `pname${index + 1}=${encodeURIComponent(productName)}&price${index + 1}=${encodeURIComponent(productPrice)}&quantity${index + 1}=${encodeURIComponent(productQuantity)}&`;
+        });
+        // Remove the trailing '&' if there are no selected products
+        queryString = queryString.slice(0, -1);
+        // Redirect to the billing page with the selected products in the URL
+        window.location.href = queryString;
+    }
+
+    // Attach the buyNow function to the buy now button click event
+    document.querySelector('.buy-now-btn').addEventListener('click', buyNow);
+</script>
+
+</body>
+</html>
